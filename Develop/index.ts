@@ -1,8 +1,6 @@
 import inquirer from "inquirer";
-//import db from "/dist/connection.js";
 //import express from 'express';
 import { closeDb, connectToDb } from "./connection.js";
-//import connectToDb from "./connection.js";
 import { debugPort, title } from "process";
 
 
