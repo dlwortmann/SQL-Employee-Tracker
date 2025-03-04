@@ -9,7 +9,7 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     port: 5432,
 });
-const connectToDb = async () => {
+export const connectToDb = async () => {
     try {
         const db = await pool.connect();
         console.log('Connected to the database.');
@@ -20,4 +20,6 @@ const connectToDb = async () => {
         process.exit(1);
     }
 };
-export default connectToDb;
+export const closeDb = async () => {
+    await pool.end();
+};
