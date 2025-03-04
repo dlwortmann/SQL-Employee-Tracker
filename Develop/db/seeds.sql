@@ -1,4 +1,4 @@
-INSERT INTO department (name) 
+INSERT INTO departments (name) 
 VALUES 
     ("Hospitality"),
     ("Pickleball"),
@@ -6,7 +6,7 @@ VALUES
     ("Bar"),
     ("Management");
 
-INSERT INTO role (title, salary, department_id)
+INSERT INTO roles (title, salary, department_id)
 VALUES 
     ("Assistant General Manager", 70000, 5),
     ("Key Hourly Pickleballer", 40000, 2),
@@ -16,7 +16,7 @@ VALUES
     ("Food Runner", 24000, 1),
     ("Event Server", 50000, 3);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES 
     ("Bill", " Crystal", 1, 1),
     ("Jill", "Peterson", 2, 4),

@@ -14,10 +14,13 @@ const pool = new Pool({
 
 const connectToDb = async () => {
   try {
-    await pool.connect();
+    const db = await pool.connect();
     console.log('Connected to the database.');
+    return db;
   } catch (err) {
     console.error('Error connecting to database:', err);
     process.exit(1);
   }
 };
+
+export default connectToDb
