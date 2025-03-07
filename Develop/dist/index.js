@@ -206,13 +206,6 @@ var employee_tracker = async function () {
                         choices: () => {
                             const employeeArray = [...new Set(result.rows.map(row => row.last_name))];
                             return employeeArray;
-                            // var array = [];
-                            // for (var i = 0; i < result.rows.length; i++) {
-                            //     //@ts-ignore
-                            //     array.push(result.rows[i].last_name)
-                            // }
-                            // var employeeArray = [...new Set(array)];
-                            // return employeeArray;
                         }
                     },
                     {
@@ -222,22 +215,11 @@ var employee_tracker = async function () {
                         choices: () => {
                             const roleArray = [...new Set(result.rows.map(row => row.title))];
                             return roleArray;
-                            // var array = [];
-                            // for (var i = 0; i < result.rows.length; i++) {
-                            //     //@ts-ignore
-                            //     array.push(result.rows[i].title);
-                            // }
-                            // var newArray = [...new Set(array)];
-                            // return newArray;
                         }
                     }
                 ]).then((answers) => {
                     const selectedEmployee = result.rows.find(row => row.last_name === answers.employee);
                     const newRole = result.rows.find(row => row.title === answers.role);
-                    // for (var i = 0; i < result.rows.length; i++) {
-                    //     if (result.rows[i].last_name === answers.employee) {
-                    //         var name = result.rows[i];
-                    //     }
                     if (selectedEmployee && newRole) {
                         db.query(`UPDATE employee SET role_id = $1 WHERE last_name = $2`, [newRole.role_id, answers.employee], (err, result) => {
                             if (err)
